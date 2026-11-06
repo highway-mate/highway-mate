@@ -22,7 +22,11 @@ class MainActivity : ComponentActivity() {
         setContent { HighwayMateScreen(app) }
     }
 
-    override fun onResume() { super.onResume(); visible = true }
+    override fun onResume() {
+        super.onResume(); visible = true
+        // the screen shows the same message, so drop the heads-up card
+        getSystemService(android.app.NotificationManager::class.java).cancel(2)
+    }
     override fun onPause() { visible = false; super.onPause() }
 
     companion object {

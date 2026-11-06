@@ -52,7 +52,7 @@ case "${1:-}" in
 setup)
   vc "controls?speed=0&accelerator=0&brake=0"; vc "driving-mode?ad_mode_state=not_ready"; vc "gear?gear=Park"
   vc "driving-mode?target_speed_mps=27.778"
-  d reset; d clearlog; d fuel 32; d panel on; d temp 22; d mode VOICE; d tab 0; app
+  d reset; d clearlog; d fuel 32; d panel off; d temp 22; d mode VOICE; d tab 0; app
   echo "odometer now: $(odo) km"
   ;;
 
@@ -66,7 +66,9 @@ part1)
   cap "고속도로 주행보조(HDA)를 켜면 크루즈 「작동」 → 예고 모드"
   vc "driving-mode?ad_mode_state=full_autonomous"; sleep 3
   cap "실제 내비 정체 정보로 정체 구간 전에 미리: 주의 구간 카드 + 소리 (녹화엔 소리 없음)"; sleep 7
-  cap "요금소·분기점도 미리 알려요 (실제 내비 TBT)"; sleep 7
+  cap "요금소·분기점도 미리 알려요 (실제 내비 TBT)"; sleep 6
+  cap "주행 중 앱을 열면: 큰 안내와 앞 30km 노선 띠만 보여요. 나머지 메뉴는 잠겨요"; app; sleep 7
+  navi; sleep 1
   cap "시간 빠르게 ×60 · 연속 운전 1시간 50분 · 연료 28%"
   d fuel 28; d drive 106; d time 60; sleep 5; d time 1; sleep 3
   cap "휴게소 권유 카드 — 지도를 떠나지 않고 버튼 한 번"; sleep 4
@@ -90,7 +92,8 @@ part2)
   cap "도착 · P단 → 계기판 값으로 운행이 자동 기록, 운전자는 「업무」 한 번만"
   vc "controls?speed=0&accelerator=0&brake=30"; sleep 1; vc "gear?gear=Park"; sleep 1; app; sleep 5
   d classify business; sleep 4
-  cap "월말: 국세청 운행기록부 서식 CSV를 QR로 — 서버를 거치지 않아요"; d tab 2; sleep 7
+  cap "월말: 국세청 운행기록부 서식 CSV를 QR로 — 서버를 거치지 않아요"; d tab 1; sleep 7
+  cap "오늘의 운전 리포트 — 운전자 본인만 봐요"; d tab 2; sleep 5
   cap "알림 설정: 음성 / 효과음(주의 띵, 위험 띵띵띵) / 화면만, 알림 종류별 켜기·끄기"; d tab 4; sleep 7
   cap "전기차 확장 ⑤ (2단계): 내비로 도착 예상 배터리 확인"; d tab 3; d trip; sleep 6
   cap "중간 절전 → 공조 온도·풍량·조명 (차량 제어 SDK, 아래 공조 표시 22° → 20°)"; d save mid; sleep 8

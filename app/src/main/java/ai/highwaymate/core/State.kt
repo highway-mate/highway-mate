@@ -74,7 +74,7 @@ data class SimState(
     val cruise: Cruise? = null,
     val progressEnabled: Boolean = true,
     val caption: String = "",
-    val panelVisible: Boolean = true,
+    val panelVisible: Boolean = false,
     val tab: Int? = null,
 )
 
