@@ -10,7 +10,7 @@ Pleos Connect(Android Automotive OS, API 34)용 프로토타입입니다. 「현
 | **정차 중 홈: 전체 노선, 다음 휴게소, 연속 운전** | **운행일지와 월말 운행기록부 QR** |
 | ![홈](docs/03_home_rest.jpg) | ![운행일지](docs/04_triplog.jpg) |
 
-시연 영상: [docs/demo.mp4](docs/demo.mp4) (2분 48초, 에뮬레이터 화면 녹화, 자막 있음, 소리 없음)
+시연 영상: [docs/demo.mp4](docs/demo.mp4) (2분 41초, 에뮬레이터 화면 녹화, 자막·알림 소리 있음)
 
 화면은 고속도로 안내표지에서 가져왔어요. 초록은 길 안내와 휴게소, 노랑은 주의 구간, 빨강은 위험이에요. 주행 중에는 어두운 아스팔트 화면으로 바뀌고, 리포트·운행일지·설정은 잠겨요.
 
@@ -44,7 +44,8 @@ bash demo/demo.sh part1    # 출발 → 정체·요금소 예고 → 휴게소 �
 bash demo/demo.sh part2    # 휴식 → 도착 → 운행 자동 기록 → 업무 분류 → 월말 QR → 알림 설정 → 전기차 절전
 ```
 
-- `REC=1`을 붙이면 화면을 녹화합니다. `python demo/make_video.py`로 자막을 입힙니다.
+- `REC=1`을 붙이면 화면을 녹화합니다. `python -I demo/make_video.py demo/out demo/out/하이웨이메이트_시연.mp4 hm_part1 hm_part2`로 자막과 알림 소리를 입힙니다.
+- 에뮬레이터 녹화에는 소리가 담기지 않습니다. 그래서 `demo/sounds/<part>.tsv`에 적은 시점(알림 카드가 뜬 시각)에 알림음과 안내 음성(Windows 한국어 음성 Heami)을 다시 합성해 넣습니다. 다시 녹화하면 이 시각을 고쳐야 합니다.
 - 스크립트는 Virtual Console의 HTTP API로 기어·속도·크루즈·누적거리를 바꿉니다. 그래서 앱은 이 값을 **실제 Pleos SDK 경로로** 받습니다.
 
 ## 테스트 환경과 필요한 설정

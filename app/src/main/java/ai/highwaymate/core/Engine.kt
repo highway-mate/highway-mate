@@ -164,9 +164,8 @@ class Engine(
             val ahead = c.offsetM - p
             if (ahead in 0.0..FORECAST_M) {
                 val km = "%.1f".format(ahead / 1000).removeSuffix(".0")
-                val road = c.road.ifBlank { "앞" }
                 once("cong-$i", "congestion", now,
-                    "${km}km 앞 $road 정체 구간이에요. 크루즈는 멈춘 차를 늦게 볼 수 있어요.", Level.CAUTION)
+                    "${km}km 앞 정체 구간이에요. 앞차를 확인해 주세요.", Level.CAUTION)
             }
         }
         ((if (prefs.tollJunction) s.route.tbt else emptyList()) + (if (prefs.cautionZones) s.route.cautions else emptyList())).forEach { e ->

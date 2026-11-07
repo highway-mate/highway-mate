@@ -65,7 +65,7 @@ part1)
   vc "gear?gear=Drive"; sleep 1; vc "controls?speed=100&accelerator=20&brake=0"; sleep 6
   cap "고속도로 주행보조(HDA)를 켜면 크루즈 「작동」 → 예고 모드"
   vc "driving-mode?ad_mode_state=full_autonomous"; sleep 3
-  cap "실제 내비 정체 정보로 정체 구간 전에 미리: 주의 구간 카드 + 소리 (녹화엔 소리 없음)"; sleep 7
+  cap "실제 내비 정체 정보로 정체 구간 전에 미리: 주의 구간 카드 + 소리"; sleep 7
   cap "요금소·분기점도 미리 알려요 (실제 내비 TBT)"; sleep 6
   cap "주행 중 앱을 열면: 큰 안내와 앞 30km 노선 띠만 보여요. 나머지 메뉴는 잠겨요"; app; sleep 7
   navi; sleep 1
