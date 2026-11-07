@@ -19,6 +19,7 @@ Pleos Connect(Android Automotive OS, API 34)용 프로토타입입니다. 「현
 ## APK
 
 - **[apk/HighwayMate_release.apk](apk/HighwayMate_release.apk)**: release 빌드이고 서명돼 있어요.
+  - 파일 이름: 제출 규칙은 `팀명_앱이름_release.apk`이지만, 개인 참가는 팀명이 성명이라 실명이 드러나요. 접수양식의 「첨부자료에 개발자 실명이 노출되지 않도록」 안내를 따라 팀명 자리를 비우고 앱 이름만 붙였어요.
 - 패키지명: `ai.highwaymate`
 
 ## 실행 방법
